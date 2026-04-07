@@ -1,0 +1,23 @@
+testbed:
+  name: GreenCity-API-Testbed
+
+custom:
+  main_api_base_url: "https://greencity.greencity.cx.ua"
+  user_api_base_url: "https://greencity-user.greencity.cx.ua"
+
+  # Test user credentials — replace with a valid dedicated test account
+  test_credentials:
+    email: "test.user@greencity.com"
+    password: "TestPassword123!"
+
+  # EcoNews field constraints derived from API contract
+  eco_news_constraints:
+    title_max_length: 170
+    title_min_length: 1
+    text_min_length: 20
+    valid_tags:
+      - "NEWS"
+      - "EVENTS"
+      - "EDUCATION"
+      - "INITIATIVES"
+      - "ADS"
