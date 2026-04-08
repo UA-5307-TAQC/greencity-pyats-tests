@@ -1,0 +1,14 @@
+# config/test_data.yaml
+habit_scenarios:
+  valid_habit_1:
+    habit_id: 1
+    expected_status: 200
+  valid_habit_2:
+    habit_id: 2
+    expected_status: 200
+  non_existent_habit:
+    habit_id: 999999
+    expected_status: 404
+  negative_id_habit:
+    habit_id: -10
+    expected_status: 404
