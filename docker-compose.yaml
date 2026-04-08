@@ -4,6 +4,8 @@ services:
   pyats:
     build: .
     container_name: greencity_pyats
+    env_file:
+      - data/.env
     volumes:
       - .:/app
     working_dir: /app

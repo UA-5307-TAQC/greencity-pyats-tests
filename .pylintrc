@@ -17,9 +17,19 @@ ignore-paths=
 
 [MESSAGES CONTROL]
 disable=
-    cyclic-import,
+    attribute-defined-outside-init,
+    unused-argument,
+    no-member,
+    import-error,
+    useless-option-value,
+    bad-plugin-value,
+    cannot-enumerate-pytest-fixtures,
     too-few-public-methods,
-    E1102
+    cyclic-import,
+    no-self-use,
+    missing-function-docstring,
+    missing-class-docstring,
+    missing-module-docstring
 
 [FORMAT]
 max-line-length=120
