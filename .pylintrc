@@ -1,0 +1,34 @@
+[MASTER]
+ignore=
+    migrations,
+    __pycache__,
+    venv,
+    env,
+    .venv,
+    .env
+
+load-plugins=pylint_pytest
+
+init-hook="import sys; sys.path.append('.')"
+
+ignore-paths=
+    ^tests/ui/.*,
+    ^tests/api/.*
+
+[MESSAGES CONTROL]
+disable=
+    cyclic-import,
+    too-few-public-methods,
+    E1102
+
+[FORMAT]
+max-line-length=120
+
+[DESIGN]
+max-args=10
+
+[TYPECHECK]
+ignore-mixin-members=yes
+
+[REPORTS]
+output-format=colorized
