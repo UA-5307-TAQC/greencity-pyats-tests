@@ -5,10 +5,6 @@ import logging
 log = logging.getLogger(__name__)
 
 def get_auth_token(base_url):
-    """
-    Helper method to handle the /ownSecurity/signIn flow.
-    Extracts and returns the accessToken.
-    """
     log.info("Attempting to authenticate and fetch access token...")
     
     email = os.getenv("GREENCITY_EMAIL")
@@ -26,22 +22,22 @@ def get_auth_token(base_url):
     }
     
     try:
-        log.info(f"Sending POST request to {login_url} with secure payload.")
-        
         response = requests.post(login_url, json=payload, timeout=10)
-        
         response.raise_for_status() 
         
-        access_token = response.json().get('accessToken')
+        response_data = response.json()
+        
+        # Витягуємо І токен, І userId
+        access_token = response_data.get('accessToken')
+        user_id = response_data.get('userId') 
         
         if not access_token:
             raise KeyError("Validation Error: 'accessToken' not found in the response payload.")
             
-        log.info("Successfully extracted accessToken from response.")
-        return access_token
+        log.info(f"Successfully extracted accessToken and userId: {user_id}")
+        
+        return {"token": access_token, "user_id": user_id}
         
     except requests.exceptions.RequestException as e:
-        log.error(f"Failed to authenticate. Connection error or invalid credentials: {e}")
-        if response is not None:
-            log.error(f"Server response details: {response.text}")
+        log.error(f"Failed to authenticate. Error: {e}")
         raise
