@@ -4,30 +4,13 @@ from pyats import aetest
 from utils.api_client import get_auth_token
 from utils.schema_validator import validate_user_profile
 
+from tests.base_test import BaseSetup, BaseCleanup
+
 log = logging.getLogger(__name__)
 
 # SETUP: Authenticate and prepare headers
-class CommonSetup(aetest.CommonSetup):
-    @aetest.subsection
-    def setup_api_client(self):
-        log.info("Task 3 Setup: Getting Auth Token and configuring URLs...")
-        
-        user_api_url = "https://greencity-user.greencity.cx.ua"        
-        self.parent.parameters['user_api_url'] = user_api_url
-        
-        try:
-            auth_data = get_auth_token(user_api_url)
-            
-            self.parent.parameters['user_id'] = auth_data["user_id"]
-            
-            self.parent.parameters['headers'] = {
-                "Authorization": f"Bearer {auth_data['token']}",
-                "Content-Type": "application/json"
-            }
-            log.info("Setup complete. Token and User ID prepared.")
-            
-        except Exception as e:
-            self.failed(f"Setup failed due to auth error: {e}")
+class CommonSetup(BaseSetup):
+    pass
 
 # TESTCASE: Validate /user/profile API Contract
 class TestProfileContract(aetest.Testcase):
@@ -75,10 +58,8 @@ class TestProfileContract(aetest.Testcase):
             self.failed(f"Connection error: {e}")
 
 # CLEANUP
-class CommonCleanup(aetest.CommonCleanup):
-    @aetest.subsection
-    def clean_up(self):
-        log.info("Profile tests finished.")
+class CommonCleanup(BaseCleanup):
+    pass
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
