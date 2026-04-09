@@ -1,0 +1,17 @@
+habits_tests:
+  - name: "random_assign"
+    mode: "random"
+
+  - name: "specific_habit"
+    mode: "fixed"
+    habit_id: 1
+
+  - name: "lifecycle_daily"
+    mode: "random"
+    update_payload:
+      frequency: "DAILY"
+
+  - name: "lifecycle_weekly"
+    mode: "random"
+    update_payload:
+      frequency: "WEEKLY"

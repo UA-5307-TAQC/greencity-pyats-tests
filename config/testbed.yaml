@@ -1,0 +1,26 @@
+testbed:
+  name: api_testbed
+
+  custom:
+    sut_url: "https://greencity-user.greencity.cx.ua"
+    test_data_file: "config/test_data.yaml"
+    request_timeout: 5
+    users:
+      standard_user:
+        email: "%ENV{GC_USER_EMAIL}"
+        password: "%ENV{GC_USER_PASSWORD}"
+
+      admin_user:
+        email: "%ENV{GC_ADMIN_EMAIL}"
+        password: "%ENV{GC_ADMIN_PASSWORD}"
+    performance:
+      iterations: 20
+      max_latency_ms: 500
+devices:
+  sut:
+    os: linux
+    type: server
+    connections:
+      rest:
+        protocol: https
+        host: greencity-user.greencity.cx.ua
