@@ -1,0 +1,44 @@
+[MASTER]
+ignore=
+    migrations,
+    __pycache__,
+    venv,
+    env,
+    .venv,
+    .env
+
+load-plugins=pylint_pytest
+
+init-hook="import sys; sys.path.append('.')"
+
+ignore-paths=
+    ^tests/ui/.*,
+    ^tests/api/.*
+
+[MESSAGES CONTROL]
+disable=
+    attribute-defined-outside-init,
+    unused-argument,
+    no-member,
+    import-error,
+    useless-option-value,
+    bad-plugin-value,
+    cannot-enumerate-pytest-fixtures,
+    too-few-public-methods,
+    cyclic-import,
+    no-self-use,
+    missing-function-docstring,
+    missing-class-docstring,
+    missing-module-docstring
+
+[FORMAT]
+max-line-length=120
+
+[DESIGN]
+max-args=10
+
+[TYPECHECK]
+ignore-mixin-members=yes
+
+[REPORTS]
+output-format=colorized
