@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "greencity5307_pyats"
+version = "0.1.0"
+description = "pyATS API test framework for GreenCity"
+authors = [
+    { name = "Vitalina" }
+]
+
+dependencies = [
+    "pyats",
+    "requests",
+    "jsonschema"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
