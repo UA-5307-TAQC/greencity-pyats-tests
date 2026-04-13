@@ -1,0 +1,12 @@
+habit_data:
+  - name: lower_boundary
+    habit_id: 0
+    status_code: 200
+
+  - name: valid_habit_id
+    habit_id: 15
+    status_code: 200
+
+  - name: invalid_habit_id
+    habit_id: "id"
+    status_code: 404
