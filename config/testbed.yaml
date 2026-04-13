@@ -1,0 +1,8 @@
+devices:
+  sut:
+    os: linux
+    type: server
+    connections:
+      rest:
+        protocol: https
+        host: greencity-user.greencity.cx.ua

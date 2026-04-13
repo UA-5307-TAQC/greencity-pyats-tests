@@ -1,0 +1,8 @@
+genie
+pre_commit==4.5.1
+pyats
+pylint==4.0.5
+python-dotenv==1.2.2
+requests==2.33.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
