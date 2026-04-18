@@ -1,0 +1,7 @@
+testbed:
+  name: greencity_testbed
+
+devices:
+  greencity_api:
+    os: linux
+    type: api
