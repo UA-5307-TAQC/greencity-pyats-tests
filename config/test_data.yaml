@@ -1,0 +1,23 @@
+auth:
+  invalid_user:
+    email: "test@gmail.com"
+    password: "wrongpassword"
+
+habit_search_cases:
+  - name: "english_small_page"
+    lang: "en"
+    page: 0
+    size: 5
+    tags: "Reusable"
+
+  - name: "english_medium_page"
+    lang: "en"
+    page: 0
+    size: 10
+    tags: "Transportation"
+
+  - name: "english_resource_saving"
+    lang: "en"
+    page: 0
+    size: 5
+    tags: "Resource saving"
